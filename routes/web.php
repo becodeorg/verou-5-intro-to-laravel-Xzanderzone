@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +21,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
-// Route::get('/{tag}', [HomeController::class, $slug]);
 Route::get('/hello', [HomeController::class, 'hello']);
-// Route::get('/hello', function () {
-//     return view('hello');
-// });
-
+Route::get('/post', [HomeController::class, 'post']);
+Route::get('/form', [HomeController::class, 'form']);
 
 Route::get('/posts/{post}', function ($slug) {
     $path = __DIR__ . "/../resources/posts/{$slug}.html";
@@ -36,3 +35,10 @@ Route::get('/posts/{post}', function ($slug) {
         return redirect('/');
     }
 })->where('post', '[A-z_\-]+');
+
+
+Route::get('/register', [RegisterController::class, 'index'])->name('showRegister');
+Route::post('/register', [RegisterController::class, 'create'])->name('handleRegister');
+
+Route::get('/users', [UserController::class, 'index'])->name('showUsers');
+Route::get('/users/{user}', [UserController::class, 'show'])->name('showUser');

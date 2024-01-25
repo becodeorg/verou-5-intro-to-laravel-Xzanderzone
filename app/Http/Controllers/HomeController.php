@@ -13,8 +13,16 @@ class HomeController extends Controller
   {
     return view("hello");
   }
+  public function post()
+  {
+    return view("post");
+  }
   public function posts()
   {
     return view("post");
+  }
+  public function form()
+  {
+    return view("form");
   }
 }
