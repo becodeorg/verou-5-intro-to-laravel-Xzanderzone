@@ -3,7 +3,6 @@
   <x-slot name="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
     <ul>
       @foreach($users as $user)
-      {{-- {{$user->name}} --}}
       <li><a href="{{ route("showUser", ["user" => $user]) }}">{{ $user->name }}</a></li>
       @endforeach
     </ul>

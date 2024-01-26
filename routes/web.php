@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/hello', [HomeController::class, 'hello'])->name('hello');
 Route::get('/post', [HomeController::class, 'post']);
-Route::get('/form', [HomeController::class, 'form'])->name('form');
 
 Route::get('/posts/{post}', function ($slug) {
     $path = __DIR__ . "/../resources/posts/{$slug}.html";
@@ -31,12 +30,12 @@ Route::get('/posts/{post}', function ($slug) {
         $post = file_get_contents($path);
         return view('post', ['post' => $post]);
     } else {
-        // ddd('file does not exist');
         return redirect('/');
     }
 })->where('post', '[A-z_\-]+');
 
 
+Route::delete('/register/{id}', [RegisterController::class, 'destroy'])->name('destroyUser');
 Route::get('/register', [RegisterController::class, 'index'])->name('showRegister');
 Route::post('/register', [RegisterController::class, 'create'])->name('handleRegister');
 

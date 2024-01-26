@@ -9,8 +9,7 @@ class UserController extends Controller
 {
   public function index()
   {
-    // echo var_dump(User::all());
-    return view("users",['users'=>User::all ()]);
+    return view("users.index",['users'=>User::all ()]);
   }
   // public function show($id)
   // {
@@ -19,10 +18,6 @@ class UserController extends Controller
   
   public function show(User $user)
   {
-    // echo var_dump($user);
-    // echo '<br>';
-    // echo var_dump($user);
-
-    return view("user",['user'=>$user]);
+    return view("users.show",['user'=>$user]);
   }
 }
