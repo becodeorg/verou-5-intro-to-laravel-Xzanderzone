@@ -8,10 +8,8 @@
       <label for="Email">Email: </label>
       <input type="email" name="email" value="email@laravel.com" />
       <label for="Password  ">Password: </label>
-      <input type="text" name="Password" value="Password" />
+      <input type="password" name="Password" value="Password" />
       <button type="submit" value='submit' @disabled($errors->isNotEmpty())>Submit</button>
-
     </form>
   </x-slot>
-
 </x-layout>

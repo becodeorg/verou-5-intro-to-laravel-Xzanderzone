@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/hello', [HomeController::class, 'hello']);
+Route::get('/hello', [HomeController::class, 'hello'])->name('hello');
 Route::get('/post', [HomeController::class, 'post']);
-Route::get('/form', [HomeController::class, 'form']);
+Route::get('/form', [HomeController::class, 'form'])->name('form');
 
 Route::get('/posts/{post}', function ($slug) {
     $path = __DIR__ . "/../resources/posts/{$slug}.html";

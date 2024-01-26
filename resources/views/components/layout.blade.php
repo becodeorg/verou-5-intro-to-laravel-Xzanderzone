@@ -10,7 +10,10 @@
 
 <body>
   <header>
-    <a href="/">go to homepage</a>
+  <h2>Layout page -- header WIP</h2>
+    <a href="{{ route("hello") }}">go to hello page</a>
+    <a href="{{ route("form") }}">go to form page</a>
+    <a href="{{ route("showUsers") }}">go to users</a>
   </header>
   <main>
     <h1> {{$title}}</h1>
