@@ -36,6 +36,7 @@ Route::get('/posts/{post}', function ($slug) {
 
 
 Route::delete('/register/{id}', [RegisterController::class, 'destroy'])->name('destroyUser');
+Route::get('/register/{id}', [RegisterController::class, 'edit'])->name('editUser');//wip to handle errors / edit inputs/post info
 Route::get('/register', [RegisterController::class, 'index'])->name('showRegister');
 Route::post('/register', [RegisterController::class, 'create'])->name('handleRegister');
 

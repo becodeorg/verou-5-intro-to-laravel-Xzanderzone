@@ -11,10 +11,12 @@
 <body>
   <header>
   <h2>Layout page -- header WIP</h2>
+</header>
+  <nav>
     <a href="{{ route("hello") }}">go to hello page</a>
     <a href="{{ route("showRegister") }}">go to form page</a>
     <a href="{{ route("showUsers") }}">go to users</a>
-  </header>
+  </nav>
   <main>
     <h1> {{$title}}</h1>
     <p>{{$content}}</p>

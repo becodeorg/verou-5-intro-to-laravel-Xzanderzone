@@ -13,11 +13,18 @@ class RegisterController extends Controller
   }
   public function create(Request $request)
   {
-    // dd($request);
+    // $validated = $request->validate([
+    //   'email' => 'required|unique:posts|max:255',
+    //   'name' => 'required',
+    // ]);
     $email= $request->email;
     $name= $request->name;
     $password= $request->password;
-    User::create(['name'=> $name, 'email'=> $email,'password'=> $password,  ]);
+    try{
+      User::create(['name'=> $name, 'email'=> $email,'password'=> $password,  ]);
+    }catch(\Exception $e){
+      return view ('forms.form',["error"=>$e->getCode()]); 
+    }
     return view ('forms.submittedForm');
   }
     public function destroy(int $id)
